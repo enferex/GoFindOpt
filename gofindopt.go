@@ -77,7 +77,14 @@ func nextString(startIdx int, data []byte) (int, string) {
 func hasDuplicateChars(str string) bool {
 	exists := make(map[rune]bool, len(str))
 	for _, c := range str {
+		if c == ':' {
+			// Multiple ':' are permitted... because that's a useful thing for getopt
+			continue
+		}
+
 		if exists[c] == true {
+			// We've already seen this character, duplicate character, so probably
+			// not a getopt string.
 			return true
 		}
 		exists[c] = true
