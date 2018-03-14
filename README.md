@@ -16,6 +16,14 @@ found, then the .rodata section is scanned for any strings that match a subset
 of the getopt 'optstring' definition.  For an idea of what those strings might
 look like, check out 'man 3 getopt' and look for the 'optstring' definition.
 
+#### Output
+GoFindOut presents its findings as CSV where each line is a potential getopt
+optstring.
+    <elf object name>, <potential optstring>, < Vaild | Not Valid>
+
+Validity is with respect to the ELF.  If the item is not really an ELF file then
+it is not valid.  This is reported to the user for informational purposes.
+
 #### Caveat
 This tool can produce a large number of false positives:  Use and or tweak at
 your own discretion.  Hopefully, I've planted a seed, now water this plant.
