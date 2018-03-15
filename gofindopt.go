@@ -136,9 +136,9 @@ func NewElfObj(elfObj *ElfObj, filename string, min int) {
 	if hasGetOptSymbol(file) {
 		// See: man 3 getopt  -- In particular the 'optstring' definition.
 		// First character can be an optional '+' or '-'.
-		// At least one A-Z a-z with optional ':' between them.
+		// At least one A-Z a-z 0-9 with optional ':' between them.
 		// This is a subset of what getopt permits.
-		restr := fmt.Sprintf("^[+-]?([a-zA-Z]+:?){%v,}$", elfObj.minOptstrLen)
+		restr := fmt.Sprintf("^[+-]?([a-zA-Z0-9]+:?){%v,}$", elfObj.minOptstrLen)
 		re := regexp.MustCompile(restr)
 		elfObj.getOptStrings = findStringTableMatch(file, re)
 	} else {
