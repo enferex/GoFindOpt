@@ -17,7 +17,7 @@ of the getopt 'optstring' definition.  For an idea of what those strings might
 look like, check out 'man 3 getopt' and look for the 'optstring' definition.
 
 #### Output
-GoFindOut presents its findings as CSV where each line is a potential getopt
+GoFindOpt presents its findings as CSV where each line is a potential getopt
 optstring.
 ```
     # elf object name , potential optstring , Vaild or Not Valid
